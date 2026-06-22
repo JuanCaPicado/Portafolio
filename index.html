@@ -439,7 +439,7 @@
 
     <!-- ===== JAVASCRIPT: validaciones y comportamiento ===== -->
     <script>
-        // ─── MENÚ HAMBURGUESA (móvil) ─────────────────────────────────────────
+        // ─── MENÚ HAMBURGUESA (movil) ─────────────────────────────────────────
         // Abre y cierra el menú cuando se toca el ícono de las tres rayitas
         const navToggle = document.getElementById('navToggle');
         const navLinks  = document.getElementById('navLinks');
@@ -448,7 +448,7 @@
             navLinks.classList.toggle('nav-activo');
         });
 
-        // Cierra el menú al hacer clic en cualquier link (útil en móvil)
+        // Cierra el menú al hacer clic en cualquier link 
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('nav-activo');
