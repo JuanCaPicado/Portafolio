@@ -1049,3 +1049,106 @@ ul { list-style: none; }
         justify-content: center;
     }
 }
+
+
+/* ================================================================
+   SLIDER DE PROYECTOS
+   ================================================================ */
+
+/* Caja exterior que recorta lo que se sale, solo muestra 1 slide a la vez */
+.slider-contenedor {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* La pista contiene los 3 slides en fila horizontal */
+.slider-pista {
+    display: flex;
+    transition: transform 0.5s ease; /* El deslizamiento suave entre proyectos */
+    will-change: transform;
+}
+
+/* Cada slide ocupa exactamente el 100% del contenedor */
+.slider-item {
+    min-width: 100%;
+    flex-shrink: 0;
+    opacity: 1;
+    transform: none;
+}
+
+/* Imagen del slider más alta para que se vea bien */
+.slider-item .proyecto-imagen img {
+    height: 260px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Flechas de navegación izquierda y derecha */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(44, 62, 80, 0.75);
+    color: white;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-prev { left: 12px; }
+.slider-next { right: 12px; }
+
+/* Puntos indicadores debajo del slider */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+}
+
+/* El punto del slide activo se pinta con el color primario */
+.dot.activo {
+    background-color: var(--primary-color);
+    transform: scale(1.3);
+}
+
+/* En móvil las flechas son más pequeñas */
+@media (max-width: 768px) {
+    .slider-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .slider-item .proyecto-imagen img {
+        height: 200px;
+    }
+}
