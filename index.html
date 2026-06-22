@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- viewport es para que la página sea responsive en celulares y tablets -->
+    <!-- viewport: sin esto la página se ve horrible en el celular, escala todo mal -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Portafolio - Juan Carlos Picado</title>
 
-    <!-- Se carga Font Awesome 6.4.0 para los íconos de habilidades y redes sociales -->
+    <!-- Font Awesome 6.4.0: la librería de íconos que usamos en toda la página -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="styles.css">
@@ -15,20 +15,20 @@
 
 <body>
 
-    <!-- ===== HEADER: cabecera principal con la barra de navegación ===== -->
+    <!-- ===== HEADER: barra de navegación fija que siempre se ve arriba ===== -->
     <header class="header" id="inicio">
         <nav class="nav">
-            <!-- Logo o nombre en el navbar -->
+            <!-- Nombre/logo que aparece en la esquina izquierda del navbar -->
             <div class="nav-logo">
                 <span class="logo-text">MiPortafolio</span>
             </div>
 
-            <!-- Menú hamburguesa para versión móvil -->
+            <!-- Botón de tres rayitas para móvil, JS lo activa al hacer clic -->
             <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <!-- Links del menú, cada uno apunta a su sección con ancla (#) -->
+            <!-- Cada href="#seccion" hace scroll suave hasta esa sección -->
             <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sobre-mi">Sobre Mí</a></li>
@@ -41,44 +41,44 @@
     <!-- ===== FIN HEADER ===== -->
 
 
-    <!-- ===== MAIN: contenido principal, único en la página (semántica HTML5) ===== -->
+    <!-- ===== MAIN: único contenedor de contenido principal (semántica HTML5) ===== -->
     <main>
 
-        <!-- ===== SECCIÓN HERO: primera pantalla que ve el usuario ===== -->
+        <!-- ===== HERO: lo primero que ve el usuario al entrar a la página ===== -->
         <section class="hero" id="hero">
             <div class="hero-content">
-                <!-- Foto del estudiante o cualquier foto que se quiera poner -->
+                <!-- Foto circular, si no carga usa un avatar generado con las iniciales -->
                 <div class="hero-foto">
-                    <img src="foto.jpg" alt="Foto de perfil" class="foto-perfil"
-                        onerror="this.src='https://ui-avatars.com/api/?name=Tu+Nombre&size=200&background=3498db&color=fff'">
+                    <img src="foto.JPG" alt="Foto de perfil" class="foto-perfil"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Juan+Carlos+Picado&size=200&background=3498db&color=fff'">
                 </div>
 
                 <div class="hero-texto">
                     <h1 class="hero-titulo">
                         Hola, soy <span class="nombre-destacado">Juan Carlos Picado</span>
                     </h1>
-                    <!-- Subtítulo con animación de escritura (keyframe definido en CSS) -->
-                    <p class="hero-subtitulo">Desarrollador Web | Estudiante de Programación IV</p>
+                    <!-- Subtítulo descriptivo debajo del nombre -->
+                    <p class="hero-subtitulo">Técnico en Networking | Estudiante de Programación IV</p>
                     <p class="hero-descripcion">
                         Apasionado por construir soluciones web modernas con HTML5, CSS3 y buenas prácticas de desarrollo.
                     </p>
 
                     <div class="hero-botones">
-                        <!-- Ancla a la sección proyectos -->
+                        <!-- Scroll directo a la sección de proyectos -->
                         <a href="#proyectos" class="btn btn-primary">
                             <i class="fas fa-code"></i> Ver Proyectos
                         </a>
-                        <!-- Descarga el CV (se puede poner un .pdf o .docx real) -->
+                        <!-- Atributo download hace que el archivo se descargue en vez de abrirse -->
                         <a href="cv.pdf" download class="btn btn-secondary">
                             <i class="fas fa-download"></i> Descargar CV
                         </a>
-                        <!-- Botón que lleva al área de contacto -->
+                        <!-- Scroll directo al formulario de contacto -->
                         <a href="#contacto" class="btn btn-outline">
                             <i class="fas fa-envelope"></i> Contacto
                         </a>
                     </div>
 
-                    <!-- Redes sociales del hero -->
+                    <!-- Redes sociales: abren en pestaña nueva con target="_blank" -->
                     <div class="hero-redes">
                         <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                         <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -88,7 +88,7 @@
                 </div>
             </div>
 
-            <!-- Flecha animada para indicar que hay más contenido abajo -->
+            <!-- Flecha que rebota para indicarle al usuario que hay más contenido abajo -->
             <div class="scroll-indicador">
                 <a href="#sobre-mi"><i class="fas fa-chevron-down"></i></a>
             </div>
@@ -96,7 +96,7 @@
         <!-- ===== FIN HERO ===== -->
 
 
-        <!-- ===== SECCIÓN SOBRE MÍ ===== -->
+        <!-- ===== SOBRE MÍ: información personal y profesional ===== -->
         <section class="sobre-mi" id="sobre-mi">
             <div class="contenedor">
                 <h2 class="seccion-titulo">
@@ -104,7 +104,7 @@
                 </h2>
                 <div class="seccion-linea"></div>
 
-                <!-- article: contenido independiente con significado propio (visto en clase) -->
+                <!-- article porque es contenido independiente con sentido propio -->
                 <article class="sobre-mi-contenido">
                     <div class="sobre-mi-texto">
                         <p>
@@ -118,11 +118,12 @@
                             full-stack usando Python con Django.
                         </p>
 
-                        <!-- Datos personales como lista semántica -->
+                        <!-- Lista de datos personales con íconos de Font Awesome -->
                         <ul class="info-lista">
                             <li><i class="fas fa-map-marker-alt"></i> <strong>Ubicación:</strong> Costa Rica</li>
                             <li><i class="fas fa-graduation-cap"></i> <strong>Carrera:</strong> Informática</li>
-                            <li><i class="fas fa-briefcase"></i> <strong>Estado:</strong> Estudiante de Informatica</li>
+                            <li><i class="fas fa-graduation-cap"></i> <strong>Estado:</strong> Estudiante de Informática</li>
+                            <li><i class="fas fa-network-wired"></i> <strong>Trabajo:</strong> Técnico en Networking</li>
                             <li><i class="fas fa-language"></i> <strong>Idiomas:</strong> Español, Inglés básico</li>
                         </ul>
                     </div>
@@ -132,7 +133,7 @@
         <!-- ===== FIN SOBRE MÍ ===== -->
 
 
-        <!-- ===== SECCIÓN HABILIDADES: íconos con Font Awesome como vimos en clase ===== -->
+        <!-- ===== HABILIDADES: grid de cards con íconos Font Awesome y barras de nivel ===== -->
         <section class="habilidades" id="habilidades">
             <div class="contenedor">
                 <h2 class="seccion-titulo">
@@ -140,11 +141,11 @@
                 </h2>
                 <div class="seccion-linea"></div>
 
-                <!-- CSS Grid para distribuir las cards de habilidades -->
+                <!-- CSS Grid de 3 columnas, se reduce en tablet y móvil vía media queries -->
                 <div class="habilidades-grid">
 
                     <div class="habilidad-card">
-                        <!-- fab = Font Awesome Brands (íconos de marcas/tecnologías) -->
+                        <!-- fab = Font Awesome Brands, para íconos de tecnologías -->
                         <i class="fab fa-html5 icono-habilidad html"></i>
                         <h3>HTML5</h3>
                         <p>Estructura semántica, accesibilidad y SEO</p>
@@ -204,7 +205,7 @@
         <!-- ===== FIN HABILIDADES ===== -->
 
 
-        <!-- ===== SECCIÓN PROYECTOS: cards interactivas, mínimo 3 ===== -->
+        <!-- ===== PROYECTOS: slider automático con 3 cards y botón Ver Detalles ===== -->
         <section class="proyectos" id="proyectos">
             <div class="contenedor">
                 <h2 class="seccion-titulo">
@@ -212,86 +213,106 @@
                 </h2>
                 <div class="seccion-linea"></div>
 
-                <!-- Flexbox para distribuir las cards de proyectos -->
-                <div class="proyectos-grid">
+                <!-- Contenedor del slider: solo muestra una card a la vez -->
+                <div class="slider-contenedor">
 
-                    <!-- Proyecto 1 -->
-                    <article class="proyecto-card">
-                        <div class="proyecto-imagen">
-                            <!-- Imagen representativa del proyecto -->
-                            <img src="https://via.placeholder.com/400x250/3498db/ffffff?text=Proyecto+1"
-                                alt="Portafolio Web">
-                            <!-- Overlay que aparece en hover con los botones -->
-                            <div class="proyecto-overlay">
-                                <!-- Ver Detalles hace animación pero NO va a otra página (requisito de la tarea) -->
-                                <button class="btn-detalles" onclick="mostrarDetalles(this, 'Portafolio Web Personal')">
-                                    <i class="fas fa-eye"></i> Ver Detalles
-                                </button>
-                            </div>
-                        </div>
-                        <div class="proyecto-info">
-                            <h3>Portafolio Web Personal</h3>
-                            <p>Portafolio desarrollado con HTML5 semántico y CSS3 puro,
-                               implementando diseño responsive mobile-first.</p>
-                            <div class="proyecto-tags">
-                                <span class="tag">HTML5</span>
-                                <span class="tag">CSS3</span>
-                                <span class="tag">Responsive</span>
-                            </div>
-                        </div>
-                    </article>
+                    <!-- Flecha izquierda para ir al proyecto anterior -->
+                    <button class="slider-btn slider-prev" onclick="cambiarSlide(-1)" aria-label="Anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
 
-                    <!-- Proyecto 2 -->
-                    <article class="proyecto-card">
-                        <div class="proyecto-imagen">
-                            <img src="https://via.placeholder.com/400x250/e74c3c/ffffff?text=Proyecto+2"
-                                alt="Calculadora Web">
-                            <div class="proyecto-overlay">
-                                <button class="btn-detalles" onclick="mostrarDetalles(this, 'Calculadora Web')">
-                                    <i class="fas fa-eye"></i> Ver Detalles
-                                </button>
-                            </div>
-                        </div>
-                        <div class="proyecto-info">
-                            <h3>Calculadora Web</h3>
-                            <p>Aplicación de calculadora usando JavaScript para la lógica
-                               y CSS3 para la interfaz visual moderna.</p>
-                            <div class="proyecto-tags">
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">CSS3</span>
-                                <span class="tag">HTML5</span>
-                            </div>
-                        </div>
-                    </article>
+                    <!-- Pista del slider: se mueve con transform: translateX en JS -->
+                    <div class="slider-pista" id="sliderPista">
 
-                    <!-- Proyecto 3 -->
-                    <article class="proyecto-card">
-                        <div class="proyecto-imagen">
-                            <img src="https://via.placeholder.com/400x250/2ecc71/ffffff?text=Proyecto+3"
-                                alt="Página de Recetas">
-                            <div class="proyecto-overlay">
-                                <button class="btn-detalles" onclick="mostrarDetalles(this, 'Página de Recetas')">
-                                    <i class="fas fa-eye"></i> Ver Detalles
-                                </button>
+                        <!-- Proyecto 1 -->
+                        <article class="proyecto-card slider-item">
+                            <div class="proyecto-imagen">
+                                <img src="https://via.placeholder.com/600x300/3498db/ffffff?text=Portafolio+Web"
+                                    alt="Portafolio Web Personal">
+                                <!-- Overlay con el botón que hace animación modal, NO navega a otra página -->
+                                <div class="proyecto-overlay">
+                                    <button class="btn-detalles" onclick="mostrarDetalles('Portafolio Web Personal', 'Portafolio desarrollado con HTML5 semántico y CSS3 puro. Implementa diseño responsive mobile-first, variables CSS, animaciones y todas las buenas prácticas vistas en Programación IV.')">
+                                        <i class="fas fa-eye"></i> Ver Detalles
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="proyecto-info">
-                            <h3>Página de Recetas</h3>
-                            <p>Sitio web de recetas con estructura semántica completa,
-                               artículos independientes y secciones bien definidas.</p>
-                            <div class="proyecto-tags">
-                                <span class="tag">HTML5</span>
-                                <span class="tag">Semántica</span>
-                                <span class="tag">Grid</span>
+                            <div class="proyecto-info">
+                                <h3>Portafolio Web Personal</h3>
+                                <p>Portafolio desarrollado con HTML5 semántico y CSS3 puro,
+                                   implementando diseño responsive mobile-first.</p>
+                                <div class="proyecto-tags">
+                                    <span class="tag">HTML5</span>
+                                    <span class="tag">CSS3</span>
+                                    <span class="tag">Responsive</span>
+                                </div>
                             </div>
-                        </div>
-                    </article>
+                        </article>
 
+                        <!-- Proyecto 2 -->
+                        <article class="proyecto-card slider-item">
+                            <div class="proyecto-imagen">
+                                <img src="https://via.placeholder.com/600x300/e74c3c/ffffff?text=Calculadora+Web"
+                                    alt="Calculadora Web">
+                                <div class="proyecto-overlay">
+                                    <button class="btn-detalles" onclick="mostrarDetalles('Calculadora Web', 'Calculadora funcional construida con JavaScript para toda la lógica matemática y CSS3 para la interfaz visual. Permite operaciones básicas con diseño moderno y responsivo.')">
+                                        <i class="fas fa-eye"></i> Ver Detalles
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="proyecto-info">
+                                <h3>Calculadora Web</h3>
+                                <p>Aplicación de calculadora usando JavaScript para la lógica
+                                   y CSS3 para la interfaz visual moderna.</p>
+                                <div class="proyecto-tags">
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">CSS3</span>
+                                    <span class="tag">HTML5</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Proyecto 3 -->
+                        <article class="proyecto-card slider-item">
+                            <div class="proyecto-imagen">
+                                <img src="https://via.placeholder.com/600x300/2ecc71/ffffff?text=Pagina+de+Recetas"
+                                    alt="Página de Recetas">
+                                <div class="proyecto-overlay">
+                                    <button class="btn-detalles" onclick="mostrarDetalles('Página de Recetas', 'Sitio web de recetas con estructura semántica completa usando article, section y aside. Incluye CSS Grid para el layout y diseño responsive para móviles.')">
+                                        <i class="fas fa-eye"></i> Ver Detalles
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="proyecto-info">
+                                <h3>Página de Recetas</h3>
+                                <p>Sitio web de recetas con estructura semántica completa,
+                                   artículos independientes y secciones bien definidas.</p>
+                                <div class="proyecto-tags">
+                                    <span class="tag">HTML5</span>
+                                    <span class="tag">Semántica</span>
+                                    <span class="tag">Grid</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div><!-- fin slider-pista -->
+
+                    <!-- Flecha derecha para ir al proyecto siguiente -->
+                    <button class="slider-btn slider-next" onclick="cambiarSlide(1)" aria-label="Siguiente">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
 
-                <!-- Modal que aparece cuando se presiona "Ver Detalles" -->
+                <!-- Puntos indicadores de posición del slider -->
+                <div class="slider-dots" id="sliderDots">
+                    <button class="dot activo" onclick="irASlide(0)"></button>
+                    <button class="dot" onclick="irASlide(1)"></button>
+                    <button class="dot" onclick="irASlide(2)"></button>
+                </div>
+
+                <!-- Modal de Ver Detalles: aparece sobre la página sin navegar a ningún lado -->
                 <div class="modal-overlay" id="modalOverlay" onclick="cerrarModal()">
                     <div class="modal" onclick="event.stopPropagation()">
+                        <!-- X para cerrar, también se puede cerrar con Escape o clic fuera -->
                         <button class="modal-cerrar" onclick="cerrarModal()">
                             <i class="fas fa-times"></i>
                         </button>
@@ -309,7 +330,7 @@
         <!-- ===== FIN PROYECTOS ===== -->
 
 
-        <!-- ===== SECCIÓN CONTACTO: formulario con validación JS ===== -->
+        <!-- ===== CONTACTO: formulario con validación de email en JS ===== -->
         <section class="contacto" id="contacto">
             <div class="contenedor">
                 <h2 class="seccion-titulo">
@@ -317,9 +338,10 @@
                 </h2>
                 <div class="seccion-linea"></div>
 
+                <!-- Grid de 2 columnas: datos a la izquierda, formulario a la derecha -->
                 <div class="contacto-contenido">
 
-                    <!-- Info de contacto a la izquierda -->
+                    <!-- Columna izquierda: datos de contacto y redes -->
                     <div class="contacto-info">
                         <h3>¡Hablemos!</h3>
                         <p>¿Tenés algún proyecto en mente o querés ponerte en contacto?
@@ -340,7 +362,7 @@
                             </div>
                         </div>
 
-                        <!-- Redes sociales en el área de contacto -->
+                        <!-- Redes sociales: cada una va a su propia red social -->
                         <div class="redes-sociales">
                             <a href="https://github.com" target="_blank" class="red-social" title="GitHub">
                                 <i class="fab fa-github"></i>
@@ -357,9 +379,9 @@
                         </div>
                     </div>
 
-                    <!-- Formulario de contacto con validación del email (requisito tarea) -->
+                    <!-- Columna derecha: formulario con validación -->
                     <div class="formulario-contenedor">
-                        <!-- Usamos el evento onsubmit para validar antes de enviar -->
+                        <!-- onsubmit llama a la función de validación antes de enviar -->
                         <form class="contacto-form" onsubmit="validarFormulario(event)">
 
                             <div class="campo-form">
@@ -368,7 +390,7 @@
                                 </label>
                                 <input type="text" id="nombre" name="nombre"
                                     placeholder="Su Nombre" required>
-                                <!-- Div para mostrar el mensaje de error de este campo -->
+                                <!-- Acá aparece el mensaje de error si el campo está vacío -->
                                 <span class="error-msg" id="error-nombre"></span>
                             </div>
 
@@ -376,7 +398,7 @@
                                 <label for="email">
                                     <i class="fas fa-envelope"></i> Correo electrónico
                                 </label>
-                                <!-- type="email" ya trae validación básica de HTML5 -->
+                                <!-- type="email" valida formato básico, pero yo valido el @ por JS también -->
                                 <input type="email" id="email" name="email"
                                     placeholder="ejemplo@correo.com" required>
                                 <span class="error-msg" id="error-email"></span>
@@ -404,7 +426,7 @@
                                 <i class="fas fa-paper-plane"></i> Enviar Mensaje
                             </button>
 
-                            <!-- Mensaje de éxito que aparece tras validar correctamente -->
+                            <!-- Solo aparece cuando la validación pasa, JS le agrega la clase "visible" -->
                             <div class="exito-msg" id="exitoMsg">
                                 <i class="fas fa-check-circle"></i>
                                 ¡Mensaje enviado! Te respondo pronto.
@@ -421,7 +443,7 @@
     <!-- ===== FIN MAIN ===== -->
 
 
-    <!-- ===== FOOTER: pie de página con créditos y links ===== -->
+    <!-- ===== FOOTER: pie de página con año, nombre y links rápidos ===== -->
     <footer class="footer">
         <div class="contenedor">
             <div class="footer-contenido">
@@ -437,10 +459,11 @@
     <!-- ===== FIN FOOTER ===== -->
 
 
-    <!-- ===== JAVASCRIPT: validaciones y comportamiento ===== -->
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // ─── MENÚ HAMBURGUESA (movil) ─────────────────────────────────────────
-        // Abre y cierra el menú cuando se toca el ícono de las tres rayitas
+
+        // ─── MENÚ HAMBURGUESA (móvil) ─────────────────────────────────────────
+        // Al tocar las tres rayitas, agrego/quito la clase nav-activo para mostrar u ocultar el menú
         const navToggle = document.getElementById('navToggle');
         const navLinks  = document.getElementById('navLinks');
 
@@ -448,7 +471,7 @@
             navLinks.classList.toggle('nav-activo');
         });
 
-        // Cierra el menú al hacer clic en cualquier link 
+        // Cierro el menú automáticamente al seleccionar cualquier opción
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('nav-activo');
@@ -457,61 +480,102 @@
 
 
         // ─── HEADER CON FONDO AL BAJAR EL SCROLL ─────────────────────────────
-        // Agrega clase para que el header se vea con fondo al salir del hero
+        // Cuando el usuario baja más de 80px, el header toma fondo oscuro para que se lea bien
         window.addEventListener('scroll', () => {
             const header = document.querySelector('.header');
             header.classList.toggle('header-scroll', window.scrollY > 80);
         });
 
 
-        // ─── VER DETALLES (animación modal, sin ir a otra página) ────────────
-        // El botón activa el modal con los datos del proyecto
-        function mostrarDetalles(boton, titulo) {
-            const overlay = document.getElementById('modalOverlay');
-            const tituloEl = document.getElementById('modalTitulo');
-            const descEl   = document.getElementById('modalDescripcion');
+        // ─── SLIDER DE PROYECTOS ──────────────────────────────────────────────
+        // Controla cuál proyecto se muestra, moviéndose con translateX
+        let slideActual = 0;
+        const totalSlides = 3;
+        let intervaloSlider; // Guardo el intervalo para poder pausarlo
 
-            tituloEl.textContent = titulo;
-            descEl.textContent   = `Este es un proyecto de ${titulo}. 
-                                    Desarrollado aplicando las tecnologías vistas en Programación IV: 
-                                    HTML5 semántico, CSS3 con variables, diseño responsive y buenas prácticas.`;
+        function irASlide(n) {
+            // Actualizo el índice y lo mantengo dentro del rango 0-2
+            slideActual = (n + totalSlides) % totalSlides;
 
-            // Mostramos el overlay con animación (la clase activo la define el CSS)
-            overlay.classList.add('activo');
+            // Muevo la pista: cada slide ocupa 100% del ancho, entonces desplazo n * 100%
+            document.getElementById('sliderPista').style.transform =
+                `translateX(-${slideActual * 100}%)`;
+
+            // Actualizo los puntos indicadores abajo del slider
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('activo', i === slideActual);
+            });
+        }
+
+        function cambiarSlide(direccion) {
+            irASlide(slideActual + direccion);
+            // Reinicio el timer para que no salte justo después de haber cambiado manualmente
+            reiniciarIntervalo();
+        }
+
+        function iniciarIntervalo() {
+            // Cambia de slide cada 4 segundos automáticamente
+            intervaloSlider = setInterval(() => {
+                irASlide(slideActual + 1);
+            }, 4000);
+        }
+
+        function reiniciarIntervalo() {
+            clearInterval(intervaloSlider);
+            iniciarIntervalo();
+        }
+
+        // Arranco el slider automático al cargar la página
+        iniciarIntervalo();
+
+        // Pauso el slider si el usuario está encima (para que no cambie mientras lee)
+        document.querySelector('.slider-contenedor').addEventListener('mouseenter', () => {
+            clearInterval(intervaloSlider);
+        });
+        document.querySelector('.slider-contenedor').addEventListener('mouseleave', () => {
+            iniciarIntervalo();
+        });
+
+
+        // ─── MODAL VER DETALLES (animación, sin ir a otra página) ────────────
+        // Recibe el título y descripción del proyecto y los muestra en el modal
+        function mostrarDetalles(titulo, descripcion) {
+            document.getElementById('modalTitulo').textContent     = titulo;
+            document.getElementById('modalDescripcion').textContent = descripcion;
+            // La clase "activo" en el CSS hace que el modal sea visible con animación de escala
+            document.getElementById('modalOverlay').classList.add('activo');
         }
 
         function cerrarModal() {
             document.getElementById('modalOverlay').classList.remove('activo');
         }
 
-        // También se cierra con la tecla Escape
+        // Atajo de teclado: Escape también cierra el modal
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') cerrarModal();
         });
 
 
-        // ─── VALIDACIÓN DEL FORMULARIO DE CONTACTO ───────────────────────────
-        // Verifica que el email tenga contenido y que haya caracteres antes y después del @
+        // ─── VALIDACIÓN DEL FORMULARIO ────────────────────────────────────────
+        // Reviso que todos los campos tengan contenido y que el email tenga @ con algo antes y después
         function validarFormulario(evento) {
-            // Prevenimos que el form recargue la página (comportamiento por defecto)
-            evento.preventDefault();
+            evento.preventDefault(); // Evito que la página se recargue al enviar
 
             let valido = true;
 
-            // Limpiamos mensajes de error anteriores
+            // Limpio errores del intento anterior
             document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
             document.querySelectorAll('.campo-form input, .campo-form textarea')
                     .forEach(el => el.classList.remove('campo-error'));
 
-            // ── Validación del nombre ──
+            // Valido nombre
             const nombre = document.getElementById('nombre').value.trim();
             if (!nombre) {
                 mostrarError('nombre', 'El nombre no puede quedar vacío.');
                 valido = false;
             }
 
-            // ── Validación del email: tiene que tener algo ANTES y DESPUÉS del @ ──
-            // Esta es la validación específica que pidió el profesor
+            // Valido email: que exista contenido antes y después del @
             const email = document.getElementById('email').value.trim();
             if (!email) {
                 mostrarError('email', 'El correo no puede quedar vacío.');
@@ -521,67 +585,58 @@
                 valido = false;
             }
 
-            // ── Validación del asunto ──
+            // Valido asunto
             const asunto = document.getElementById('asunto').value.trim();
             if (!asunto) {
                 mostrarError('asunto', 'El asunto no puede quedar vacío.');
                 valido = false;
             }
 
-            // ── Validación del mensaje ──
+            // Valido mensaje
             const mensaje = document.getElementById('mensaje').value.trim();
             if (!mensaje) {
                 mostrarError('mensaje', 'El mensaje no puede quedar vacío.');
                 valido = false;
             }
 
-            // Solo si todo está bien mostramos el mensaje de éxito
             if (valido) {
                 document.getElementById('exitoMsg').classList.add('visible');
                 document.querySelector('.contacto-form').reset();
-
-                // Ocultamos el mensaje de éxito después de 4 segundos
                 setTimeout(() => {
                     document.getElementById('exitoMsg').classList.remove('visible');
                 }, 4000);
             }
         }
 
-        // Función auxiliar: valida que el email tenga algo antes y después del @
+        // Busco la posición del @ y verifico que haya algo antes (posición > 0) y después (no es el último)
         function validarEmail(email) {
-            // indexOf('@') nos dice la posición del arroba
-            const posArroba = email.indexOf('@');
-
-            // Tiene que haber al menos 1 carácter antes del @ y al menos 1 después
+            const posArroba    = email.indexOf('@');
             const antesArroba  = posArroba > 0;
             const despuesArroba = posArroba < email.length - 1;
-
             return antesArroba && despuesArroba;
         }
 
-        // Función auxiliar: marca el campo en rojo y muestra el mensaje de error
+        // Pongo el borde rojo en el campo y muestro el texto de error debajo
         function mostrarError(campoId, mensaje) {
-            const campo = document.getElementById(campoId);
-            campo.classList.add('campo-error');
+            document.getElementById(campoId).classList.add('campo-error');
             document.getElementById('error-' + campoId).textContent = mensaje;
         }
 
 
-        // ─── ANIMACIÓN DE LAS BARRAS DE HABILIDADES AL HACER SCROLL ──────────
-        // Cuando la sección habilidades entra en la pantalla, animamos las barras
+        // ─── ANIMACIÓN DE ENTRADA AL HACER SCROLL ────────────────────────────
+        // Las cards empiezan invisibles y aparecen cuando entran en pantalla
         const observador = new IntersectionObserver((entradas) => {
             entradas.forEach(entrada => {
                 if (entrada.isIntersecting) {
-                    // Disparamos la animación solo cuando el elemento es visible
                     entrada.target.classList.add('animar');
                 }
             });
-        }, { threshold: 0.2 }); // 20% del elemento tiene que estar visible
+        }, { threshold: 0.2 }); // Se activa cuando el 20% del elemento ya es visible
 
-        // Para observar cada card de habilidad y cada barra de progreso
-        document.querySelectorAll('.habilidad-card, .proyecto-card').forEach(el => {
+        document.querySelectorAll('.habilidad-card').forEach(el => {
             observador.observe(el);
         });
+
     </script>
 
 </body>
