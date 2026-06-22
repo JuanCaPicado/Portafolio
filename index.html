@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport es para que la página sea responsive en celulares y tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Juan Carlos Picado</title>
+
+    <!-- Se carga Font Awesome 6.4.0 para los íconos de habilidades y redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ===== HEADER: cabecera principal con la barra de navegación ===== -->
+    <header class="header" id="inicio">
+        <nav class="nav">
+            <!-- Logo o nombre en el navbar -->
+            <div class="nav-logo">
+                <span class="logo-text">MiPortafolio</span>
+            </div>
+
+            <!-- Menú hamburguesa para versión móvil -->
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Links del menú, cada uno apunta a su sección con ancla (#) -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ===== FIN HEADER ===== -->
+
+
+    <!-- ===== MAIN: contenido principal, único en la página (semántica HTML5) ===== -->
+    <main>
+
+        <!-- ===== SECCIÓN HERO: primera pantalla que ve el usuario ===== -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <!-- Foto del estudiante o cualquier foto que se quiera poner -->
+                <div class="hero-foto">
+                    <img src="foto.jpg" alt="Foto de perfil" class="foto-perfil"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Tu+Nombre&size=200&background=3498db&color=fff'">
+                </div>
+
+                <div class="hero-texto">
+                    <h1 class="hero-titulo">
+                        Hola, soy <span class="nombre-destacado">Juan Carlos Picado</span>
+                    </h1>
+                    <!-- Subtítulo con animación de escritura (keyframe definido en CSS) -->
+                    <p class="hero-subtitulo">Desarrollador Web | Estudiante de Programación IV</p>
+                    <p class="hero-descripcion">
+                        Apasionado por construir soluciones web modernas con HTML5, CSS3 y buenas prácticas de desarrollo.
+                    </p>
+
+                    <div class="hero-botones">
+                        <!-- Ancla a la sección proyectos -->
+                        <a href="#proyectos" class="btn btn-primary">
+                            <i class="fas fa-code"></i> Ver Proyectos
+                        </a>
+                        <!-- Descarga el CV (se puede poner un .pdf o .docx real) -->
+                        <a href="cv.pdf" download class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Descargar CV
+                        </a>
+                        <!-- Botón que lleva al área de contacto -->
+                        <a href="#contacto" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i> Contacto
+                        </a>
+                    </div>
+
+                    <!-- Redes sociales del hero -->
+                    <div class="hero-redes">
+                        <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flecha animada para indicar que hay más contenido abajo -->
+            <div class="scroll-indicador">
+                <a href="#sobre-mi"><i class="fas fa-chevron-down"></i></a>
+            </div>
+        </section>
+        <!-- ===== FIN HERO ===== -->
+
+
+        <!-- ===== SECCIÓN SOBRE MÍ ===== -->
+        <section class="sobre-mi" id="sobre-mi">
+            <div class="contenedor">
+                <h2 class="seccion-titulo">
+                    <i class="fas fa-user"></i> Sobre Mí
+                </h2>
+                <div class="seccion-linea"></div>
+
+                <!-- article: contenido independiente con significado propio (visto en clase) -->
+                <article class="sobre-mi-contenido">
+                    <div class="sobre-mi-texto">
+                        <p>
+                            Soy estudiante de Informática en la Universidad Politécnica Internacional,
+                            cursando Programación IV. Me apasiona el desarrollo web y estoy aprendiendo
+                            las mejores tecnologías y prácticas del mercado actual.
+                        </p>
+                        <p>
+                            Trabajo con HTML5 semántico y CSS3 para crear interfaces modernas,
+                            responsivas y accesibles. Me interesa especialmente el desarrollo
+                            full-stack usando Python con Django.
+                        </p>
+
+                        <!-- Datos personales como lista semántica -->
+                        <ul class="info-lista">
+                            <li><i class="fas fa-map-marker-alt"></i> <strong>Ubicación:</strong> Costa Rica</li>
+                            <li><i class="fas fa-graduation-cap"></i> <strong>Carrera:</strong> Informática</li>
+                            <li><i class="fas fa-briefcase"></i> <strong>Estado:</strong> Estudiante tiempo completo</li>
+                            <li><i class="fas fa-language"></i> <strong>Idiomas:</strong> Español, Inglés básico</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- ===== FIN SOBRE MÍ ===== -->
+
+
+        <!-- ===== SECCIÓN HABILIDADES: íconos con Font Awesome como vimos en clase ===== -->
+        <section class="habilidades" id="habilidades">
+            <div class="contenedor">
+                <h2 class="seccion-titulo">
+                    <i class="fas fa-tools"></i> Habilidades
+                </h2>
+                <div class="seccion-linea"></div>
+
+                <!-- CSS Grid para distribuir las cards de habilidades -->
+                <div class="habilidades-grid">
+
+                    <div class="habilidad-card">
+                        <!-- fab = Font Awesome Brands (íconos de marcas/tecnologías) -->
+                        <i class="fab fa-html5 icono-habilidad html"></i>
+                        <h3>HTML5</h3>
+                        <p>Estructura semántica, accesibilidad y SEO</p>
+                        <div class="barra-progreso">
+                            <div class="barra-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="habilidad-card">
+                        <i class="fab fa-css3-alt icono-habilidad css"></i>
+                        <h3>CSS3</h3>
+                        <p>Flexbox, Grid, animaciones y diseño responsive</p>
+                        <div class="barra-progreso">
+                            <div class="barra-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="habilidad-card">
+                        <i class="fab fa-js-square icono-habilidad js"></i>
+                        <h3>JavaScript</h3>
+                        <p>DOM, validaciones y lógica del lado cliente</p>
+                        <div class="barra-progreso">
+                            <div class="barra-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+
+                    <div class="habilidad-card">
+                        <i class="fab fa-python icono-habilidad python"></i>
+                        <h3>Python</h3>
+                        <p>Lógica de programación y próximamente Django</p>
+                        <div class="barra-progreso">
+                            <div class="barra-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+
+                    <div class="habilidad-card">
+                        <i class="fab fa-git-alt icono-habilidad git"></i>
+                        <h3>Git & GitHub</h3>
+                        <p>Control de versiones, ramas y pull requests</p>
+                        <div class="barra-progreso">
+                            <div class="barra-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+
+                    <div class="habilidad-card">
+                        <i class="fas fa-database icono-habilidad db"></i>
+                        <h3>Bases de Datos</h3>
+                        <p>Modelado, consultas SQL básicas</p>
+                        <div class="barra-progreso">
+                            <div class="barra-fill" style="width: 55%"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- ===== FIN HABILIDADES ===== -->
+
+
+        <!-- ===== SECCIÓN PROYECTOS: cards interactivas, mínimo 3 ===== -->
+        <section class="proyectos" id="proyectos">
+            <div class="contenedor">
+                <h2 class="seccion-titulo">
+                    <i class="fas fa-folder-open"></i> Mis Proyectos
+                </h2>
+                <div class="seccion-linea"></div>
+
+                <!-- Flexbox para distribuir las cards de proyectos -->
+                <div class="proyectos-grid">
+
+                    <!-- Proyecto 1 -->
+                    <article class="proyecto-card">
+                        <div class="proyecto-imagen">
+                            <!-- Imagen representativa del proyecto -->
+                            <img src="https://via.placeholder.com/400x250/3498db/ffffff?text=Proyecto+1"
+                                alt="Portafolio Web">
+                            <!-- Overlay que aparece en hover con los botones -->
+                            <div class="proyecto-overlay">
+                                <!-- Ver Detalles hace animación pero NO va a otra página (requisito de la tarea) -->
+                                <button class="btn-detalles" onclick="mostrarDetalles(this, 'Portafolio Web Personal')">
+                                    <i class="fas fa-eye"></i> Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                        <div class="proyecto-info">
+                            <h3>Portafolio Web Personal</h3>
+                            <p>Portafolio desarrollado con HTML5 semántico y CSS3 puro,
+                               implementando diseño responsive mobile-first.</p>
+                            <div class="proyecto-tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">Responsive</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 2 -->
+                    <article class="proyecto-card">
+                        <div class="proyecto-imagen">
+                            <img src="https://via.placeholder.com/400x250/e74c3c/ffffff?text=Proyecto+2"
+                                alt="Calculadora Web">
+                            <div class="proyecto-overlay">
+                                <button class="btn-detalles" onclick="mostrarDetalles(this, 'Calculadora Web')">
+                                    <i class="fas fa-eye"></i> Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                        <div class="proyecto-info">
+                            <h3>Calculadora Web</h3>
+                            <p>Aplicación de calculadora usando JavaScript para la lógica
+                               y CSS3 para la interfaz visual moderna.</p>
+                            <div class="proyecto-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">HTML5</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 3 -->
+                    <article class="proyecto-card">
+                        <div class="proyecto-imagen">
+                            <img src="https://via.placeholder.com/400x250/2ecc71/ffffff?text=Proyecto+3"
+                                alt="Página de Recetas">
+                            <div class="proyecto-overlay">
+                                <button class="btn-detalles" onclick="mostrarDetalles(this, 'Página de Recetas')">
+                                    <i class="fas fa-eye"></i> Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                        <div class="proyecto-info">
+                            <h3>Página de Recetas</h3>
+                            <p>Sitio web de recetas con estructura semántica completa,
+                               artículos independientes y secciones bien definidas.</p>
+                            <div class="proyecto-tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">Semántica</span>
+                                <span class="tag">Grid</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Modal que aparece cuando se presiona "Ver Detalles" -->
+                <div class="modal-overlay" id="modalOverlay" onclick="cerrarModal()">
+                    <div class="modal" onclick="event.stopPropagation()">
+                        <button class="modal-cerrar" onclick="cerrarModal()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <h3 id="modalTitulo">Título del Proyecto</h3>
+                        <p id="modalDescripcion">Descripción detallada del proyecto...</p>
+                        <div class="modal-acciones">
+                            <a href="#" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Ver Demo</a>
+                            <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> Ver Código</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- ===== FIN PROYECTOS ===== -->
+
+
+        <!-- ===== SECCIÓN CONTACTO: formulario con validación JS ===== -->
+        <section class="contacto" id="contacto">
+            <div class="contenedor">
+                <h2 class="seccion-titulo">
+                    <i class="fas fa-envelope"></i> Contacto
+                </h2>
+                <div class="seccion-linea"></div>
+
+                <div class="contacto-contenido">
+
+                    <!-- Info de contacto a la izquierda -->
+                    <div class="contacto-info">
+                        <h3>¡Hablemos!</h3>
+                        <p>¿Tenés algún proyecto en mente o querés ponerte en contacto?
+                           Completá el formulario y te respondo pronto.</p>
+
+                        <div class="contacto-datos">
+                            <div class="dato-contacto">
+                                <i class="fas fa-envelope"></i>
+                                <span>juank_13_94@hotmail.es</span>
+                            </div>
+                            <div class="dato-contacto">
+                                <i class="fas fa-phone"></i>
+                                <span>+506 7056-8701</span>
+                            </div>
+                            <div class="dato-contacto">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Costa Rica</span>
+                            </div>
+                        </div>
+
+                        <!-- Redes sociales en el área de contacto -->
+                        <div class="redes-sociales">
+                            <a href="https://github.com" target="_blank" class="red-social" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" class="red-social" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://facebook.com" target="_blank" class="red-social" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" class="red-social" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de contacto con validación del email (requisito tarea) -->
+                    <div class="formulario-contenedor">
+                        <!-- Usamos el evento onsubmit para validar antes de enviar -->
+                        <form class="contacto-form" onsubmit="validarFormulario(event)">
+
+                            <div class="campo-form">
+                                <label for="nombre">
+                                    <i class="fas fa-user"></i> Nombre completo
+                                </label>
+                                <input type="text" id="nombre" name="nombre"
+                                    placeholder="Juan Carlos Picado" required>
+                                <!-- Div para mostrar el mensaje de error de este campo -->
+                                <span class="error-msg" id="error-nombre"></span>
+                            </div>
+
+                            <div class="campo-form">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i> Correo electrónico
+                                </label>
+                                <!-- type="email" ya trae validación básica de HTML5 -->
+                                <input type="email" id="email" name="email"
+                                    placeholder="ejemplo@correo.com" required>
+                                <span class="error-msg" id="error-email"></span>
+                            </div>
+
+                            <div class="campo-form">
+                                <label for="asunto">
+                                    <i class="fas fa-tag"></i> Asunto
+                                </label>
+                                <input type="text" id="asunto" name="asunto"
+                                    placeholder="¿De qué trata tu mensaje?" required>
+                                <span class="error-msg" id="error-asunto"></span>
+                            </div>
+
+                            <div class="campo-form">
+                                <label for="mensaje">
+                                    <i class="fas fa-comment"></i> Mensaje
+                                </label>
+                                <textarea id="mensaje" name="mensaje" rows="5"
+                                    placeholder="Escribí tu mensaje aquí..." required></textarea>
+                                <span class="error-msg" id="error-mensaje"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-enviar">
+                                <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                            </button>
+
+                            <!-- Mensaje de éxito que aparece tras validar correctamente -->
+                            <div class="exito-msg" id="exitoMsg">
+                                <i class="fas fa-check-circle"></i>
+                                ¡Mensaje enviado! Te respondo pronto.
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- ===== FIN CONTACTO ===== -->
+
+    </main>
+    <!-- ===== FIN MAIN ===== -->
+
+
+    <!-- ===== FOOTER: pie de página con créditos y links ===== -->
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="footer-contenido">
+                <p>&copy; 2026 Juan Carlos Picado. Hecho con <i class="fas fa-heart"></i> usando HTML5 y CSS3.</p>
+                <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ===== FIN FOOTER ===== -->
+
+
+    <!-- ===== JAVASCRIPT: validaciones y comportamiento ===== -->
+    <script>
+        // ─── MENÚ HAMBURGUESA (móvil) ─────────────────────────────────────────
+        // Abre y cierra el menú cuando se toca el ícono de las tres rayitas
+        const navToggle = document.getElementById('navToggle');
+        const navLinks  = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-activo');
+        });
+
+        // Cierra el menú al hacer clic en cualquier link (útil en móvil)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav-activo');
+            });
+        });
+
+
+        // ─── HEADER CON FONDO AL BAJAR EL SCROLL ─────────────────────────────
+        // Agrega clase para que el header se vea con fondo al salir del hero
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            header.classList.toggle('header-scroll', window.scrollY > 80);
+        });
+
+
+        // ─── VER DETALLES (animación modal, sin ir a otra página) ────────────
+        // El botón activa el modal con los datos del proyecto
+        function mostrarDetalles(boton, titulo) {
+            const overlay = document.getElementById('modalOverlay');
+            const tituloEl = document.getElementById('modalTitulo');
+            const descEl   = document.getElementById('modalDescripcion');
+
+            tituloEl.textContent = titulo;
+            descEl.textContent   = `Este es un proyecto de ${titulo}. 
+                                    Desarrollado aplicando las tecnologías vistas en Programación IV: 
+                                    HTML5 semántico, CSS3 con variables, diseño responsive y buenas prácticas.`;
+
+            // Mostramos el overlay con animación (la clase activo la define el CSS)
+            overlay.classList.add('activo');
+        }
+
+        function cerrarModal() {
+            document.getElementById('modalOverlay').classList.remove('activo');
+        }
+
+        // También se cierra con la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') cerrarModal();
+        });
+
+
+        // ─── VALIDACIÓN DEL FORMULARIO DE CONTACTO ───────────────────────────
+        // Verifica que el email tenga contenido y que haya caracteres antes y después del @
+        function validarFormulario(evento) {
+            // Prevenimos que el form recargue la página (comportamiento por defecto)
+            evento.preventDefault();
+
+            let valido = true;
+
+            // Limpiamos mensajes de error anteriores
+            document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
+            document.querySelectorAll('.campo-form input, .campo-form textarea')
+                    .forEach(el => el.classList.remove('campo-error'));
+
+            // ── Validación del nombre ──
+            const nombre = document.getElementById('nombre').value.trim();
+            if (!nombre) {
+                mostrarError('nombre', 'El nombre no puede quedar vacío.');
+                valido = false;
+            }
+
+            // ── Validación del email: tiene que tener algo ANTES y DESPUÉS del @ ──
+            // Esta es la validación específica que pidió el profesor
+            const email = document.getElementById('email').value.trim();
+            if (!email) {
+                mostrarError('email', 'El correo no puede quedar vacío.');
+                valido = false;
+            } else if (!validarEmail(email)) {
+                mostrarError('email', 'El correo debe tener caracteres antes y después del @.');
+                valido = false;
+            }
+
+            // ── Validación del asunto ──
+            const asunto = document.getElementById('asunto').value.trim();
+            if (!asunto) {
+                mostrarError('asunto', 'El asunto no puede quedar vacío.');
+                valido = false;
+            }
+
+            // ── Validación del mensaje ──
+            const mensaje = document.getElementById('mensaje').value.trim();
+            if (!mensaje) {
+                mostrarError('mensaje', 'El mensaje no puede quedar vacío.');
+                valido = false;
+            }
+
+            // Solo si todo está bien mostramos el mensaje de éxito
+            if (valido) {
+                document.getElementById('exitoMsg').classList.add('visible');
+                document.querySelector('.contacto-form').reset();
+
+                // Ocultamos el mensaje de éxito después de 4 segundos
+                setTimeout(() => {
+                    document.getElementById('exitoMsg').classList.remove('visible');
+                }, 4000);
+            }
+        }
+
+        // Función auxiliar: valida que el email tenga algo antes y después del @
+        function validarEmail(email) {
+            // indexOf('@') nos dice la posición del arroba
+            const posArroba = email.indexOf('@');
+
+            // Tiene que haber al menos 1 carácter antes del @ y al menos 1 después
+            const antesArroba  = posArroba > 0;
+            const despuesArroba = posArroba < email.length - 1;
+
+            return antesArroba && despuesArroba;
+        }
+
+        // Función auxiliar: marca el campo en rojo y muestra el mensaje de error
+        function mostrarError(campoId, mensaje) {
+            const campo = document.getElementById(campoId);
+            campo.classList.add('campo-error');
+            document.getElementById('error-' + campoId).textContent = mensaje;
+        }
+
+
+        // ─── ANIMACIÓN DE LAS BARRAS DE HABILIDADES AL HACER SCROLL ──────────
+        // Cuando la sección habilidades entra en la pantalla, animamos las barras
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach(entrada => {
+                if (entrada.isIntersecting) {
+                    // Disparamos la animación solo cuando el elemento es visible
+                    entrada.target.classList.add('animar');
+                }
+            });
+        }, { threshold: 0.2 }); // 20% del elemento tiene que estar visible
+
+        // Para observar cada card de habilidad y cada barra de progreso
+        document.querySelectorAll('.habilidad-card, .proyecto-card').forEach(el => {
+            observador.observe(el);
+        });
+    </script>
+
+</body>
+</html>

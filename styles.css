@@ -1,0 +1,1051 @@
+/* ================================================================
+   PORTAFOLIO PERSONAL - Mi hoja de estilos principal
+   HTML5 + CSS3 | Programación IV
+   ================================================================ */
+
+
+/* ─── VARIABLES CSS GLOBALES (:root) ──────────────────────────────
+   Esto es lo que el profesor marcó como OBLIGATORIO.
+   Cambiar una variable aquí afecta TODA la página de golpe.
+   Es como tener un único punto de control de colores y estilos.
+   ──────────────────────────────────────────────────────────────── */
+:root {
+    --primary-color:    #3498db;      /* Azul principal */
+    --secondary-color:  #2c3e50;      /* Azul oscuro / fondo oscuro */
+    --accent-color:     #e74c3c;      /* Rojo para detalles */
+    --success-color:    #2ecc71;      /* Verde para mensajes de éxito */
+    --text-color:       #333333;      /* Color de texto general */
+    --text-light:       #666666;      /* Texto secundario más claro */
+    --bg-light:         #f8f9fa;      /* Fondo claro para secciones alternas */
+    --bg-white:         #ffffff;
+    --shadow:           0 4px 15px rgba(0, 0, 0, 0.1);   /* Sombra estándar */
+    --shadow-hover:     0 8px 25px rgba(0, 0, 0, 0.15);  /* Sombra en hover */
+    --transition:       all 0.3s ease;     /* Transición estándar de 0.3s */
+    --transition-slow:  all 0.6s ease;
+    --border-radius:    10px;
+    --border-radius-lg: 20px;
+    --font-main:        'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* ─── RESET Y BASE ────────────────────────────────────────────────
+   Quitamos los márgenes y paddings por defecto del browser,
+   así tenemos control total del espaciado.
+   ──────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* El padding no agrega ancho extra al elemento */
+}
+
+html {
+    /* scroll-behavior smooth hace que los saltos de ancla (#sección) 
+       sean suaves y no teletransporte al usuario de golpe */
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal no deseado */
+}
+
+/* Quita el subrayado de todos los links */
+a { text-decoration: none; color: inherit; }
+
+/* Que las imágenes nunca se salgan de su contenedor */
+img { max-width: 100%; display: block; }
+
+/* Las listas no necesitan bullets por defecto en el diseño */
+ul { list-style: none; }
+
+
+/* ─── CLASES UTILITARIAS ──────────────────────────────────────────
+   Contenedor centrado que limita el ancho en pantallas grandes
+   ──────────────────────────────────────────────────────────────── */
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Título estándar de cada sección */
+.seccion-titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.seccion-titulo i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+/* Línea decorativa debajo del título de sección */
+.seccion-linea {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    margin: 0 auto 50px;
+    border-radius: 2px;
+}
+
+
+/* ─── BOTONES REUTILIZABLES ──────────────────────────────────────
+   Usamos var() para que cambiar un color aquí afecte todos los botones
+   ──────────────────────────────────────────────────────────────── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 50px;       /* Botones bien redondeados */
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;  /* Tono más oscuro del primario */
+    transform: translateY(-3px); /* Sube un poquito al hacer hover */
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--bg-white);
+    border-color: var(--bg-white);
+}
+
+.btn-outline:hover {
+    background-color: var(--bg-white);
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+
+/* ================================================================
+   HEADER Y NAVEGACIÓN
+   ================================================================ */
+.header {
+    position: fixed;    /* Se queda arriba aunque el usuario haga scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;      /* Encima de todo el resto */
+    padding: 15px 0;
+    transition: var(--transition);
+    /* Al inicio el header es transparente sobre el hero */
+    background-color: transparent;
+}
+
+/* Cuando el usuario baja del hero, el header toma fondo oscuro */
+.header.header-scroll {
+    background-color: var(--secondary-color);
+    box-shadow: var(--shadow);
+    padding: 10px 0;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+}
+
+/* Links de navegación: Flexbox horizontal */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding-bottom: 4px;
+    transition: var(--transition);
+}
+
+/* Línea que aparece debajo del link en hover (animación CSS pura) */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;           /* Empieza en ancho 0 */
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;        /* Se expande al 100% en hover */
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* El botón hamburguesa solo se ve en móvil (oculto en desktop) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+/* ================================================================
+   SECCIÓN HERO
+   ================================================================ */
+.hero {
+    min-height: 100vh;   /* Ocupa toda la altura de la pantalla */
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #34495e 50%, var(--primary-color) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 20px 60px;
+}
+
+/* Patrón de puntos decorativo de fondo del hero */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Foto de perfil circular ── */
+.hero-foto {
+    flex-shrink: 0;
+}
+
+.foto-perfil {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;          /* Hace la foto circular */
+    object-fit: cover;           /* Recorta la imagen sin deformarla */
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 30px rgba(52, 152, 219, 0.4);
+    /* ANIMACIÓN 1: la foto entra flotando desde abajo */
+    animation: entradaFoto 0.8s ease-out;
+}
+
+/* Keyframe de la animación de entrada de la foto */
+@keyframes entradaFoto {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Texto del hero ── */
+.hero-texto {
+    color: white;
+    /* ANIMACIÓN 2: el texto entra deslizando desde la izquierda */
+    animation: entradaTexto 0.8s ease-out 0.2s both;
+}
+
+@keyframes entradaTexto {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-titulo {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+/* El nombre se destaca con el color primario */
+.nombre-destacado {
+    color: var(--primary-color);
+}
+
+.hero-subtitulo {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.hero-descripcion {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    max-width: 500px;
+    line-height: 1.8;
+}
+
+.hero-botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* Íconos de redes sociales en el hero */
+.hero-redes {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-redes a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.hero-redes a:hover {
+    color: var(--primary-color);
+    transform: translateY(-4px);
+}
+
+/* Flecha animada de scroll */
+.scroll-indicador {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll-indicador a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.5rem;
+    /* ANIMACIÓN 3: rebote infinito de la flecha hacia abajo */
+    animation: rebote 2s infinite;
+    display: block;
+}
+
+@keyframes rebote {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(10px); }
+}
+
+
+/* ================================================================
+   SECCIÓN SOBRE MÍ
+   ================================================================ */
+.sobre-mi {
+    padding: 90px 0;
+    background-color: var(--bg-white);
+}
+
+.sobre-mi-contenido {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sobre-mi-texto p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.9;
+}
+
+/* Lista de info personal con íconos alineados */
+.info-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.info-lista li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--bg-light);
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.info-lista li i {
+    color: var(--primary-color);
+}
+
+
+/* ================================================================
+   SECCIÓN HABILIDADES
+   ================================================================ */
+.habilidades {
+    padding: 90px 0;
+    background-color: var(--bg-light);
+}
+
+/* CSS Grid: 3 columnas en desktop, se adapta en móvil */
+.habilidades-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.habilidad-card {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius);
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    /* Las cards aparecen invisibles y se animan con JS al entrar al viewport */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* La clase .animar la agrega JS cuando el elemento es visible en pantalla */
+.habilidad-card.animar {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.habilidad-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Íconos grandes de Font Awesome para cada habilidad */
+.icono-habilidad {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Colores específicos de cada tecnología */
+.html   { color: #e34f26; }
+.css    { color: #264de4; }
+.js     { color: #f7df1e; }
+.python { color: #3776ab; }
+.git    { color: #f05033; }
+.db     { color: #00758f; }
+
+.habilidad-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--secondary-color);
+}
+
+.habilidad-card p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+/* Barra de progreso para mostrar nivel de la habilidad */
+.barra-progreso {
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.barra-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+    /* ANIMACIÓN 4: las barras crecen desde 0 cuando son visibles */
+    width: 0;
+    transition: width 1s ease 0.3s;
+}
+
+/* Cuando el contenedor padre tiene .animar, las barras se expanden */
+.habilidad-card.animar .barra-fill {
+    width: attr(style); /* El ancho lo toma del style inline del HTML */
+}
+
+
+/* ================================================================
+   SECCIÓN PROYECTOS
+   ================================================================ */
+.proyectos {
+    padding: 90px 0;
+    background-color: var(--bg-white);
+}
+
+/* Flexbox para las cards de proyectos */
+.proyectos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.proyecto-card {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;         /* Para que la imagen no salga del borde redondeado */
+    width: calc(33.333% - 20px);
+    min-width: 280px;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.proyecto-card.animar {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.proyecto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Contenedor de imagen con overlay en hover */
+.proyecto-imagen {
+    position: relative;
+    overflow: hidden;
+}
+
+.proyecto-imagen img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.proyecto-card:hover .proyecto-imagen img {
+    transform: scale(1.08);  /* Zoom sutil en hover */
+}
+
+/* Overlay oscuro que aparece encima de la imagen al hacer hover */
+.proyecto-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(44, 62, 80, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;               /* Invisible por defecto */
+    transition: var(--transition);
+}
+
+.proyecto-card:hover .proyecto-overlay {
+    opacity: 1;               /* Aparece al hacer hover */
+}
+
+/* Botón "Ver Detalles" dentro del overlay */
+.btn-detalles {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    /* ANIMACIÓN 5: el botón sube desde abajo en el hover */
+    transform: translateY(15px);
+}
+
+.proyecto-card:hover .btn-detalles {
+    transform: translateY(0);  /* Sube a su posición normal */
+}
+
+.btn-detalles:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.proyecto-info {
+    padding: 20px;
+}
+
+.proyecto-info h3 {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.proyecto-info p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* Etiquetas de tecnologías del proyecto */
+.proyecto-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+/* ── MODAL de "Ver Detalles" ─────────────────────────────────────
+   Aparece encima de todo al presionar el botón de detalles.
+   Usa position fixed para quedar sobre toda la página.
+   ──────────────────────────────────────────────────────────────── */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    /* Empieza invisible y sin pointer-events */
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+/* La clase .activo se agrega con JS al presionar "Ver Detalles" */
+.modal-overlay.activo {
+    opacity: 1;
+    pointer-events: all;  /* Ahora sí se puede interactuar */
+}
+
+.modal {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    /* ANIMACIÓN 6: el modal entra escalando desde pequeño */
+    transform: scale(0.8);
+    transition: var(--transition);
+}
+
+.modal-overlay.activo .modal {
+    transform: scale(1);  /* Crece a tamaño normal */
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 15px; right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.modal-cerrar:hover {
+    color: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+.modal h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.modal p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.modal-acciones {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+/* ================================================================
+   SECCIÓN CONTACTO
+   ================================================================ */
+.contacto {
+    padding: 90px 0;
+    background-color: var(--bg-light);
+}
+
+/* Dos columnas: info a la izquierda, formulario a la derecha */
+.contacto-contenido {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* ── Información de contacto ── */
+.contacto-info h3 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.contacto-info > p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.contacto-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.dato-contacto {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-color);
+}
+
+.dato-contacto i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Íconos de redes sociales en el área de contacto */
+.redes-sociales {
+    display: flex;
+    gap: 12px;
+}
+
+.red-social {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.red-social:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+/* ── Formulario de contacto ── */
+.formulario-contenedor {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    padding: 40px;
+    box-shadow: var(--shadow);
+}
+
+.campo-form {
+    margin-bottom: 20px;
+}
+
+.campo-form label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+}
+
+.campo-form label i {
+    color: var(--primary-color);
+}
+
+/* Estilos de los inputs y textarea del formulario */
+.campo-form input,
+.campo-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    font-family: var(--font-main);
+    transition: var(--transition);
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    resize: vertical; /* Solo se puede redimensionar vertical */
+}
+
+.campo-form input:focus,
+.campo-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Cuando el campo tiene error (clase agregada por JS) se pone rojo */
+.campo-form input.campo-error,
+.campo-form textarea.campo-error {
+    border-color: var(--accent-color);
+    background-color: #fff8f8;
+}
+
+/* Mensaje de error que aparece debajo de cada campo */
+.error-msg {
+    display: block;
+    color: var(--accent-color);
+    font-size: 0.82rem;
+    margin-top: 5px;
+    min-height: 18px; /* Para que no salte el layout cuando aparece */
+}
+
+.btn-enviar {
+    width: 100%;
+    justify-content: center;
+    padding: 14px;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+/* Mensaje verde de éxito, oculto por defecto */
+.exito-msg {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--success-color);
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: 0.95rem;
+    /* Oculto inicialmente */
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+/* JS agrega esta clase cuando la validación pasa */
+.exito-msg.visible {
+    opacity: 1;
+    height: auto;
+}
+
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+.footer {
+    background-color: var(--secondary-color);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 25px 0;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer i.fa-heart {
+    color: var(--accent-color);
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+
+/* ================================================================
+   DISEÑO RESPONSIVE - MOBILE FIRST
+   Las media queries ajustan el layout para diferentes pantallas.
+   Esto fue lo que vimos en clase: 768px = tablet, 480px = celular.
+   ================================================================ */
+
+/* ── Tablet: max-width 900px ── */
+@media (max-width: 900px) {
+    .habilidades-grid {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columnas en tablet */
+    }
+
+    .proyecto-card {
+        width: calc(50% - 15px);  /* 2 proyectos por fila */
+    }
+
+    .contacto-contenido {
+        grid-template-columns: 1fr;  /* Todo en una sola columna */
+    }
+}
+
+/* ── Móvil: max-width 768px ── */
+@media (max-width: 768px) {
+    /* El header muestra el botón hamburguesa y oculta los links */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* El menú se convierte en columna vertical desplegable */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-color);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    /* JS agrega esta clase al presionar el botón hamburguesa */
+    .nav-links.nav-activo {
+        display: flex;
+    }
+
+    /* El hero cambia a columna (foto arriba, texto abajo) */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-titulo {
+        font-size: 2rem;  /* El título se hace más pequeño */
+    }
+
+    .foto-perfil {
+        width: 160px;
+        height: 160px;
+    }
+
+    .hero-botones {
+        justify-content: center;
+    }
+
+    .hero-redes {
+        justify-content: center;
+    }
+
+    /* Habilidades en 1 sola columna */
+    .habilidades-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .seccion-titulo {
+        font-size: 1.6rem;
+    }
+}
+
+/* ── Celular pequeño: max-width 480px ── */
+@media (max-width: 480px) {
+    .proyecto-card {
+        width: 100%;  /* Cada proyecto ocupa todo el ancho */
+    }
+
+    .hero-titulo {
+        font-size: 1.7rem;
+    }
+
+    .formulario-contenedor {
+        padding: 25px 20px;
+    }
+
+    .footer-contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .modal-acciones {
+        flex-direction: column;
+    }
+
+    .modal-acciones .btn {
+        justify-content: center;
+    }
+}
