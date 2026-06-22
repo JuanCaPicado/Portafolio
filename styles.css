@@ -1,14 +1,8 @@
-/* ================================================================
-   PORTAFOLIO PERSONAL - Mi hoja de estilos principal
-   HTML5 + CSS3 | Programación IV
-   ================================================================ */
+/* PORTAFOLIO PERSONAL - Mi hoja de estilos principal HTML5 + CSS3 | Programación IV */
 
 
-/* ─── VARIABLES CSS GLOBALES (:root) ──────────────────────────────
-   Esto es lo que el profesor marcó como OBLIGATORIO.
-   Cambiar una variable aquí afecta TODA la página de golpe.
-   Es como tener un único punto de control de colores y estilos.
-   ──────────────────────────────────────────────────────────────── */
+/* ─── VARIABLES CSS GLOBALES (:root) */
+
 :root {
     --primary-color:    #3498db;      /* Azul principal */
     --secondary-color:  #2c3e50;      /* Azul oscuro / fondo oscuro */
